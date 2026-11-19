@@ -1,0 +1,31 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Gladiator
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Random rnd = new Random();
+
+            int health, armor, attack, damage;
+
+            Console.Write("Введите показатель здоровья: ");
+            health = int.Parse(Console.ReadLine());
+            Console.Write("Введите показатель брони в процентах: ");
+            armor = int.Parse(Console.ReadLine());
+
+            Console.WriteLine();
+
+            attack = rnd.Next(0, armor);
+            Console.WriteLine($"Случайный урон: {attack}");
+            Console.WriteLine();
+            Console.WriteLine($"Наненсённый урон: {attack - attack * armor / 100}");
+            Console.WriteLine($"Оставшееся здоровье: {health - (attack - attack * armor / 100)}");
+        }
+    }
+}
